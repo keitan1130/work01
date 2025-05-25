@@ -1,0 +1,8 @@
+{
+  "name": "C Development",
+  "image": "mcr.microsoft.com/vscode/devcontainers/base:bullseye",
+  "features": {
+    "ghcr.io/devcontainers/features/gcc:1": {}
+  },
+  "postCreateCommand": "make"
+}
