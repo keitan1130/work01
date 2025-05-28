@@ -6,15 +6,44 @@
       "type": "shell",
       "command": "gcc",
       "args": [
-        "${file}",
         "-g",
+        "-O0",
+        "-Wall",
+        "${file}",
         "-o",
         "${fileDirname}/${fileBasenameNoExtension}"
       ],
-      "group": {
-        "kind": "build",
-        "isDefault": true
-      },
+      "group": "build",
+      "problemMatcher": ["$gcc"]
+    },
+    {
+      "label": "build C++ Catch2 tests",
+      "type": "shell",
+      "command": "g++",
+      "args": [
+        "-std=c++17",
+        "-g",
+        "${file}",
+        "-I/usr/include/catch2",
+        "-o",
+        "${fileDirname}/${fileBasenameNoExtension}"
+      ],
+      "group": "test",
+      "problemMatcher": ["$gcc"]
+    },
+    {
+      "label": "build CUnit tests",
+      "type": "shell",
+      "command": "gcc",
+      "args": [
+        "-g",
+        "${file}",
+        "-I/usr/include/cunit",
+        "-lcunit",
+        "-o",
+        "${fileDirname}/${fileBasenameNoExtension}"
+      ],
+      "group": "test",
       "problemMatcher": ["$gcc"]
     }
   ]
