@@ -1,8 +1,18 @@
 {
   "name": "C Development",
-  "image": "mcr.microsoft.com/vscode/devcontainers/base:bullseye",
-  "features": {
-    "ghcr.io/devcontainers/features/gcc:1": {}
+  "build": {
+    "dockerfile": "Dockerfile",
+    "context": ".."
   },
-  "postCreateCommand": "make"
+  // ターミナルと postCreateCommand を root 権限で動かす設定
+  "remoteUser": "root",
+  "settings": {
+    "terminal.integrated.shell.linux": "/bin/sh"
+  },
+  "extensions": [
+    "ms-vscode.cpptools",
+    "twxs.cmake",
+    "wraith-gitlens"
+  ],
+  "postCreateCommand": "apk update && apk add --no-cache build-base gdb clang clang-dev clang-tools-extra cmake git git-lfs cunit catch2"
 }
