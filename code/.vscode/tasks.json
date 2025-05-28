@@ -1,25 +1,21 @@
-// .vscode/tasks.json
 {
-    "version": "2.0.0",
-    "tasks": [
-        {
-            "label": "build C program",
-            "type": "shell",
-            "command": "gcc",
-            "args": [
-                "-g",                            // ← デバッグ情報を付加
-                "${file}",                       // ← 現在開いている C ファイル
-                "-o",
-                "${fileDirname}/${fileBasenameNoExtension}", // ← 出力実行ファイル
-                "-lm"
-            ],
-            "group": {
-                "kind": "build",
-                "isDefault": true
-            },
-            "problemMatcher": [
-                "$gcc"
-            ]
-        }
-    ]
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "build C program",
+      "type": "shell",
+      "command": "gcc",
+      "args": [
+        "${file}",
+        "-g",
+        "-o",
+        "${fileDirname}/${fileBasenameNoExtension}"
+      ],
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "problemMatcher": ["$gcc"]
+    }
+  ]
 }
