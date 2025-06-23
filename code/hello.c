@@ -1,6 +1,6 @@
 #include <stdio.h>
 
 int main() {
-    printf("Hello, Codespaces C world!\n");
+    printf("Hello,world!\n");
     return 0;
 }
